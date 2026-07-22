@@ -43,13 +43,29 @@
       </dependency>
     </dependencies> 
     <build>
-      <plugins>
-        <plugin>
-          <artifactId>maven-war-plugin</artifactId>
-          <configuration>   
-            <failOnMissingWebXml>false</failOnMissingWebXml>                        
-          </configuration>
-        </plugin>
-      </plugins>
+  <plugins>
+    <!-- 插件 1: 编译器插件 -->
+    <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.11.0</version>
+        <configuration>
+            <source>1.8</source>
+            <target>1.8</target>
+        </configuration>
+    </plugin>
+
+    <!-- 插件 2: WAR 打包插件 -->
+    <plugin>
+      <groupId>org.apache.maven.plugins</groupId>
+      <artifactId>maven-war-plugin</artifactId>
+      <version>3.3.2</version>
+      <configuration>
+        <!-- 确保这个配置项在 maven-war-plugin 的 configuration 内部 -->
+        <failOnMissingWebXml>false</failOnMissingWebXml>
+      </configuration>
+    </plugin>
+  </plugins>
+
     </build>
 </project>
